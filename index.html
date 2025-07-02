@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enfermero Interactivo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="envoltorio">
+    <aside class="decorativo-escritorio">
+      <img src="logo.png" alt="Logo Enfermero Interactivo" class="logo-escritorio"/>
+    </aside>
+
+    <main class="principal">
+      <div class="contenedor" id="login">
+        <h2>🔐 Acceso a práctica</h2>
+        <p>Ingresa la clave para comenzar:</p>
+        <input type="password" id="claveInput" placeholder="Escribe la clave..." />
+        <button onclick="verificarClave()">Entrar</button>
+        <div id="error"></div>
+      </div>
+
+      <div class="contenedor" id="preguntas">
+        <p id="numpregunta" class="numpregunta">Pregunta...</p>
+        <p id="pregunta" class="pregunta">Cargando pregunta...</p>
+        <div class="opciones" id="opciones"></div>
+        <p id="retro"></p>
+        <button id="siguiente" onclick="siguientePregunta()">Siguiente pregunta</button>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
