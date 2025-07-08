@@ -1,0 +1,118 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* Aseguramos que el sidebar ocupe el 100% de la altura de la pantalla */
+#sidebar {
+  background-color: #1C3247;
+  height: 100vh; /* Toma toda la altura de la pantalla */
+  padding-top: 50px;
+  position: fixed; /* Fijo para no moverse con el scroll */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Para que se superponga sobre el contenido */
+}
+
+/* Para hacer que el contenido principal se desplace a la derecha del sidebar */
+main {
+  margin-left: 250px; /* Espacio para el sidebar */
+}
+
+/* Para dispositivos pequeños, cambiar la posición del sidebar */
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    left: -250px; /* Inicialmente está oculto */
+    top: 0;
+    transition: left 0.3s ease;
+  }
+
+  #sidebar.open {
+    left: 0; /* Cuando esté abierto, se mueve al lado izquierdo */
+  }
+
+  main {
+    margin-left: 0; /* Sin margen en pantallas pequeñas */
+  }
+
+  /* Estilos para el botón de abrir/cerrar el sidebar */
+  .sidebar-toggle {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1100; /* Encima del sidebar */
+  }
+}
+
+#sidebar h3 {
+  color: #fff;
+  font-size: 24px;
+}
+
+.nav-item {
+  margin: 10px 0;
+}
+
+.nav-link {
+  font-size: 18px;
+  color: #d3d3d3;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.card {
+  margin: 10px 0;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    transition: left 0.3s;
+  }
+  
+  #sidebar.open {
+    left: 0;
+  }
+
+  .container-fluid {
+    padding-left: 0;
+  }
+
+  main {
+    margin-left: 0;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+}
