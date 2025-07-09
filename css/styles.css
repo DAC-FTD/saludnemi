@@ -80,7 +80,7 @@ main {
 .card_info {
   border: 0.15rem solid #1C3247; /* Cambia el color al que quieras */
   border-radius: 2rem;       /* Opcional: bordes redondeados */
-  padding: 17px;             /* Opcional: espacio interno */
+  padding: 15px;             /* Opcional: espacio interno */
   color: #1C3247;
   background-color: rgba(255, 255, 255, 0);
 }
