@@ -1,5 +1,5 @@
 body {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Nunito','Fredoka', sans-serif;
   background-color: #f4f6f9;
 }
 
@@ -39,7 +39,7 @@ main {
   /* Estilos para el botón de abrir/cerrar el sidebar */
   .sidebar-toggle {
     display: block;
-    background-color: #007bff;
+    background-color: #4d5863;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -67,14 +67,22 @@ main {
 
 .nav-link:hover {
   color: #fff;
-  background-color: #ff7a0c;
+  background-color: #fd7505e0;
   border-radius: 5px;
 }
 
 .card {
   margin: 10px 0;
   color: #fff;
-  border-radius: 1rem;
+  border-radius: 2rem;
+}
+
+.card_info {
+  border: 0.15rem solid #1C3247; /* Cambia el color al que quieras */
+  border-radius: 2rem;       /* Opcional: bordes redondeados */
+  padding: 17px;             /* Opcional: espacio interno */
+  color: #1C3247;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .card-title {
