@@ -22,16 +22,29 @@
     .opcion.incorrecta {
       background-color: #fecaca;
     }
-    .loader {
-      display: none;
-      text-align: center;
-      margin: 20px 0;
+    .pantalla-carga {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: white;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
   </style>
 </head>
 <body class="bg-light">
 
-<div class="container mt-5" id="quiz-container">
+<!-- Pantalla de carga inicial -->
+<div id="pantalla-carga" class="pantalla-carga">
+  <p>Cargando preguntas...</p>
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+
+<!-- Contenido del test (oculto al inicio) -->
+<div class="container mt-5" id="quiz-container" style="display: none;">
   <div class="card shadow p-4" id="cardPregunta">
     <h5 id="preguntaTitulo"><strong>Pregunta #1</strong></h5>
     <p id="preguntaTexto">Cargando pregunta...</p>
@@ -41,21 +54,29 @@
       Siguiente pregunta
     </button>
   </div>
-  <div class="loader" id="loader"><p>Cargando siguiente pregunta...</p></div>
 </div>
 
 <script>
-let preguntas = []; // aquí se cargan desde Google Sheets vía Apps Script
+let preguntas = [];
 let indiceActual = 0;
 let esperando = false;
 
+// Obtener el nivel desde la URL
+const urlParams = new URLSearchParams(window.location.search);
+const nivelSeleccionado = urlParams.get('nivel'); // Ejemplo: "1", "2", etc.
+
 function cargarPreguntas() {
-  // Ejemplo: obtenidas de un endpoint de Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec')
+  fetch(`https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec?nivel=${nivelSeleccionado}`)
     .then(res => res.json())
     .then(data => {
       preguntas = data.preguntas;
+      document.getElementById('pantalla-carga').style.display = 'none';
+      document.getElementById('quiz-container').style.display = 'block';
       mostrarPregunta();
+    })
+    .catch(error => {
+      alert('Error al cargar preguntas');
+      console.error(error);
     });
 }
 
@@ -76,6 +97,7 @@ function mostrarPregunta() {
 
   document.getElementById('respuestaFeedback').innerHTML = '';
   document.getElementById('btnSiguiente').style.display = 'none';
+  esperando = false;
 }
 
 function seleccionarOpcion(indice, elemento) {
@@ -110,19 +132,11 @@ function siguientePregunta() {
     return;
   }
 
-  // transición de carga
-  document.getElementById('cardPregunta').style.display = 'none';
-  document.getElementById('loader').style.display = 'block';
-
-  setTimeout(() => {
-    document.getElementById('loader').style.display = 'none';
-    document.getElementById('cardPregunta').style.display = 'block';
-    esperando = false;
-    mostrarPregunta();
-  }, 1000);
+  mostrarPregunta(); // Cambio inmediato sin loader ni delay
 }
 
 window.onload = cargarPreguntas;
+
 </script>
 
 </body>
