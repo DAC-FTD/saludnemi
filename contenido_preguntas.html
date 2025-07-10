@@ -2,11 +2,21 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Test Interactivo</title>
+  <title>Test - Nivel 1</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
+    body {
+        background-color: #1C3247;
+        font-family: 'Nunito','Fredoka', sans-serif;
+      }
+
     .opcion {
-      background-color: #f1f5f9;
+      background-color: #e9edee;
+      color: #1C3247;
       border-radius: 10px;
       padding: 10px 20px;
       cursor: pointer;
@@ -14,45 +24,160 @@
       transition: background 0.3s;
     }
     .opcion:hover {
-      background-color: #dbeafe;
+      background-color: #bbcce2;
     }
     .opcion.correcta {
-      background-color: #a7f3d0;
+      background-color: #80dbae;
     }
     .opcion.incorrecta {
-      background-color: #fecaca;
+      background-color: #f1b5b5;
     }
     .pantalla-carga {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background-color: white;
+      background-color: #1C3247;
       z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
     }
+
+    .card {
+      background-color: rgb(15, 134, 150);
+      color:rgb(255, 255, 255);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .alert-success {
+      background-color: #80dbae !important;
+      color: #368039;
+      height: auto;
+      width: auto;
+    }
+
+    .alert-danger {
+      background-color: #f1b5b5 !important;
+      color: #a53124;
+      height: auto;
+      width: auto;
+    }
+
+    .btnRetro {
+      background-color: #ee8f00 ;
+      color: white;
+      border: none;
+      width: 40%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnRetro:hover {
+      background-color: #c27400;
+    }
+
+    .btnSiguiente {
+      background-color: #2caa30;
+      color: white;
+      border: none;
+      width: 40%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnSiguiente:hover {
+      background-color: #3e8e41;
+    }
+
+    /* Tamaño del modal por defecto (para móviles) */
+    .custom-modal-size {
+      max-width: 80%;
+      margin: auto;
+    }
+
+    /* Cofiguración (para móviles) */
+    @media (max-width: 576px) {
+      #cardPregunta {
+        font-size: 15px;
+        padding: 1.5rem;
+      }
+
+      .opcion {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      #preguntaTexto {
+        font-size: 15px;
+      }
+
+      button {
+        width: 50%;
+        font-size: 15px;
+        margin-bottom: 0.5rem;
+      }
+
+      #respuestaFeedback {
+        font-size: 14px;
+      }
+    }
+
   </style>
 </head>
-<body class="bg-light">
+<body>
 
 <!-- Pantalla de carga inicial -->
 <div id="pantalla-carga" class="pantalla-carga">
-  <p>Cargando preguntas...</p>
-  <div class="spinner-border text-primary" role="status"></div>
+  <p style="color: white;" >Cargando preguntas...</p>
+  <div class="spinner-border text-white" role="status"></div>
 </div>
 
 <!-- Contenido del test (oculto al inicio) -->
-<div class="container mt-5" id="quiz-container" style="display: none;">
-  <div class="card shadow p-4" id="cardPregunta">
-    <h5 id="preguntaTitulo"><strong>Pregunta #1</strong></h5>
-    <p id="preguntaTexto">Cargando pregunta...</p>
-    <div id="opciones"></div>
-    <div id="respuestaFeedback" class="mt-3"></div>
-    <button class="btn btn-primary mt-3" id="btnSiguiente" onclick="siguientePregunta()" style="display: none;">
-      Siguiente pregunta
-    </button>
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" id="quiz-container" style="display: none;">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-10">
+      <div class="d-flex justify-content-between mb-3">
+        <a href="index.html" class="btn btn-outline-secondary fw-bold">
+          ← Regresar
+        </a>
+      </div>
+      <div class="card shadow" id="cardPregunta">
+      <h4 id="preguntaTitulo" class="fw-bold">Pregunta #1</h4>
+      <p id="preguntaTexto" style="text-align: justify;">Cargando pregunta...</p>
+      <div id="opciones"></div>
+      <div class="row">
+      <div id="respuestaFeedback" class="mt-2 col-lg-6"></div>
+      <div class="mt-3 col-lg-6 d-flex flex-column align-items-end gap-2">
+        <button class="btn btnRetro mb-1" id="btnRetro" style="display: none; width: 40%;" data-bs-toggle="modal" data-bs-target="#modalRetro">
+          Ver retroalimentación
+        </button>
+        <button class="btn btnSiguiente" id="btnSiguiente" onclick="siguientePregunta()" style="display: none; width: 40%">
+          Siguiente pregunta
+        </button>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Retroalimentación -->
+<div class="modal fade" id="modalRetro" tabindex="-1" aria-labelledby="modalRetroLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable custom-modal-size">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalRetroLabel">Retroalimentación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body" id="contenidoRetro">
+        <!-- Aquí se insertará la retroalimentación -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -97,6 +222,7 @@ function mostrarPregunta() {
 
   document.getElementById('respuestaFeedback').innerHTML = '';
   document.getElementById('btnSiguiente').style.display = 'none';
+  document.getElementById('btnRetro').style.display = 'none';
   esperando = false;
 }
 
@@ -107,21 +233,49 @@ function seleccionarOpcion(indice, elemento) {
   const correcta = preguntas[indiceActual].correcta;
   const opciones = document.querySelectorAll('.opcion');
 
-  opciones.forEach((el, idx) => {
-    el.classList.remove('correcta', 'incorrecta');
-    if (idx === correcta) el.classList.add('correcta');
-    if (idx === indice && idx !== correcta) el.classList.add('incorrecta');
-    el.style.pointerEvents = 'none';
-  });
+opciones.forEach((el, idx) => {
+  el.classList.remove('correcta', 'incorrecta');
+
+  // Si la respuesta es correcta, marcar solo esa opción como correcta
+  if (indice === correcta && idx === indice) {
+    el.classList.add('correcta');
+  }
+
+  // Si la respuesta es incorrecta, marcar solo la opción seleccionada como incorrecta
+  if (indice !== correcta && idx === indice) {
+    el.classList.add('incorrecta');
+  }
+
+  el.style.pointerEvents = 'none';
+});
 
   const feedback = document.getElementById('respuestaFeedback');
   if (indice === correcta) {
-    feedback.innerHTML = `<span class="text-success fw-bold">✅ ¡Correcto!</span>`;
+    feedback.innerHTML = `
+      <div class="alert alert-success d-flex align-items-center gap-2 mb-0 p-2 rounded">
+        <i class="bi bi-check-circle-fill"></i>
+        <span class="fw-semibold">¡Correcto!</span>
+      </div>`;
   } else {
     const textoCorrecto = preguntas[indiceActual].opciones[correcta];
-    feedback.innerHTML = `<span class="text-danger fw-bold">❌ Incorrecto. La respuesta correcta es: "${textoCorrecto}"</span>`;
+    feedback.innerHTML = `
+      <div class="alert alert-danger d-flex align-items-center gap-2 mb-0 p-2 rounded">
+        <i class="bi bi-x-circle-fill"></i>
+        <span>
+          <strong>Incorrecto.</strong><br>
+          La respuesta correcta es: "${textoCorrecto}"
+        </span>
+      </div>`;
   }
 
+  // Mostrar retroalimentación adicional si existe
+  const retro = preguntas[indiceActual].retro;
+  if (retro && retro.trim() !== "") {
+    document.getElementById('btnRetro').style.display = 'inline-block';
+    document.getElementById('contenidoRetro').innerText = retro;
+  } else {
+    document.getElementById('btnRetro').style.display = 'none';
+  }
   document.getElementById('btnSiguiente').style.display = 'inline-block';
 }
 
@@ -138,6 +292,8 @@ function siguientePregunta() {
 window.onload = cargarPreguntas;
 
 </script>
+
+
 
 </body>
 </html>
