@@ -156,10 +156,17 @@ function testNivel(nivel) {
   // Redirigir a la página de preguntas, pasando el nivel como parámetro
   window.location.href = `contenido_preguntas.html?nivel=${nivel}`;
 }
+
 window.addEventListener('DOMContentLoaded', function() {
+  const usuario = localStorage.getItem('usuario'); // o lo que estés usando
+
+  if (!usuario) {
+    window.location.href = "login.html";
+  } else {
   cargarContenido('contenido_inicio.html');
-  
+  }
 });
+
   </script>
 
 </body>
