@@ -12,6 +12,8 @@ body {
   top: 0;
   left: 0;
   z-index: 1000; /* Para que se superponga sobre el contenido */
+  border-right: 0.15rem solid rgb(92, 107, 116) ;
+  
 }
 
 /* Para hacer que el contenido principal se desplace a la derecha del sidebar */
@@ -54,6 +56,7 @@ main {
 #sidebar h3 {
   color: #fff;
   font-size: 24px;
+
 }
 
 .nav-item {
@@ -80,10 +83,23 @@ main {
 }
 
 .card_info {
-  border: 0.15rem solid #54575a; /* Cambia el color al que quieras */
-  border-radius: 2rem;       /* Opcional: bordes redondeados */
-  padding: 15px;             /* Opcional: espacio interno */
- 
+  border: 0.15rem solid rgb(92, 107, 116); /* Cambia el color al que quieras */
+  border-radius: 1.5rem;       /* Opcional: bordes redondeados */
+  padding: 0.85rem;     /* Opcional: espacio interno */
+  width: 80%;
+  margin-left: 3rem;
+}
+.card_info_ranking {
+  border: 0.13rem solid rgb(92, 107, 116); /* Cambia el color al que quieras */
+  border-radius: 1.5rem;       /* Opcional: bordes redondeados */
+  width: 85%;
+  margin-left: 3rem;
+}
+.info_img{
+ padding:auto ;
+}
+.info_text{
+ padding:0.75rem ;
 }
 
 .card-title {
@@ -110,6 +126,11 @@ main {
 }
 
 .nivel-imagen {
+  display: block;
+  width: auto;
+  height: 180px;
+}
+.imagen_ranking {
   display: block;
   width: auto;
   height: 180px;

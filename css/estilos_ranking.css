@@ -1,0 +1,52 @@
+.ranking-container {
+  background: #afafb644;
+  border-radius: 1rem;
+  max-width: 85%;
+  color: white;
+  margin: auto;  
+}
+
+.ranking-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1c3247d3;
+  border-radius: 0.75rem;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.ranking-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ranking-position {
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 30px;
+  text-align: center;
+}
+
+.ranking-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.ranking-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.ranking-score {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.top-1 { color: #f3d008; font-size: 2.5rem;}
+.top-2 { color: #a5a4a4; font-size: 2rem;}
+.top-3 { color: #d4791e; font-size: 1.7rem;}
