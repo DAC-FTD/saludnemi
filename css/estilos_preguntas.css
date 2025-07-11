@@ -1,0 +1,114 @@
+    body {
+        background-color: #1C3247;
+        font-family: 'Nunito','Fredoka', sans-serif;
+      }
+
+    .opcion {
+      background-color: #e9edee;
+      color: #1C3247;
+      border-radius: 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background 0.3s;
+    }
+    .opcion:hover {
+      background-color: #bbcce2;
+    }
+    .opcion.correcta {
+      background-color: #80dbae;
+    }
+    .opcion.incorrecta {
+      background-color: #f1b5b5;
+    }
+    .pantalla-carga {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: #1C3247;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .card {
+      background-color: rgb(15, 134, 150);
+      color:rgb(255, 255, 255);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .alert-success {
+      background-color: #80dbae !important;
+      color: #368039;
+      height: auto;
+      width: auto;
+    }
+
+    .alert-danger {
+      background-color: #f1b5b5 !important;
+      color: #a53124;
+      height: auto;
+      width: auto;
+    }
+
+    .btnRetro {
+      background-color: #ee8f00 ;
+      color: white;
+      border: none;
+      width: 40%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnRetro:hover {
+      background-color: #c27400;
+    }
+
+    .btnSiguiente {
+      background-color: #2caa30;
+      color: white;
+      border: none;
+      width: 40%;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnSiguiente:hover {
+      background-color: #3e8e41;
+    }
+
+    /* Tamaño del modal por defecto (para móviles) */
+    .custom-modal-size {
+      max-width: 80%;
+      margin: auto;
+    }
+
+    /* Cofiguración (para móviles) */
+    @media (max-width: 576px) {
+      #cardPregunta {
+        font-size: 15px;
+        padding: 1.5rem;
+      }
+
+      .opcion {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      #preguntaTexto {
+        font-size: 15px;
+      }
+
+      button {
+        width: 50%;
+        font-size: 15px;
+        margin-bottom: 0.5rem;
+      }
+
+      #respuestaFeedback {
+        font-size: 14px;
+      }
+    }
