@@ -157,15 +157,15 @@ function testNivel(nivel) {
   window.location.href = `contenido_preguntas.html?nivel=${nivel}`;
 }
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', () => {
   const usuario = localStorage.getItem('usuario'); // o lo que estés usando
 
   if (!usuario) {
     window.location.href = "login.html";
   } else {
-  cargarContenido('contenido_inicio.html');
-  }
+    cargarContenido('contenido_inicio.html');  }
 });
+
 
   </script>
 
