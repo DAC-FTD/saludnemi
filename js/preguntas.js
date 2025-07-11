@@ -121,9 +121,12 @@ function registrarPuntajeFinal() {
 
   fetch('https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec', {
     method: 'POST',
-    body: JSON.stringify(datos),
+    body: JSON.stringify({
+        accion: 'enviarPuntaje',
+        datos 
+    }),
     headers: {
-      'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
     }
   })
   .then(res => res.json())
