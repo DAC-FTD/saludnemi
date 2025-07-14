@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-7 ">
+    <div class="col-lg-7">
         <div class="row mt-2" style="border-bottom: 0.15rem solid rgb(92, 107, 116)">
         <h3 class="mt-3 mb-3 mx-1" style="color: whitesmoke;"><strong>¡Bienvenido a SALUDNEMI!</strong></h3>
         </div> 
@@ -104,13 +104,26 @@
         </div>
       </div>
     
-      <div class="col-lg-5 mt-2">
-        <div class="row mx-1 align-items-center">
-            <div class="col-md-2 d-flex justify-content-center align-items-center">
-                <img width="32" height="32" src="https://img.icons8.com/arcade/64/filled-star.png" alt="point"/>
+      <div class="col-lg-5 ">
+        <div class="row mx-1 ">
+            <div class="col-lg-8 d-flex align-items-center" style="justify-content: end;";>
+                <img width="auto" height="40" src="https://img.icons8.com/arcade/64/filled-star.png" alt="point"/>
+                <span id="puntajeActual" style="font-size: 28px; margin-left: 1rem; color: whitesmoke;">---</span>
             </div>
-            <div class="col-md-10 d-flex align-items-center">
-                <h5 style="font-size: 18px; margin: 0; color: whitesmoke;"><strong>500 puntos</strong></h5>
+            <div class="col-lg-4 d-flex align-items-center" style="justify-content: end;";>
+              <div class="dropdown">
+                <button class="dropdown-toggle btn" type="button" id="perfilDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img width="38" height="auto" src="https://img.icons8.com/arcade/64/nurse-female.png" alt="nurse-female"/>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end text-sm" aria-labelledby="perfilDropdown">
+                  <li class="dropdown-header fw-bold" id="infoUsuario">
+                    <!-- Aquí se carga el nombre/correo dinámicamente -->
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" id="verPerfil">Perfil</a></li>
+                  <li><a class="dropdown-item text-danger" href="#" id="cerrarSesion">Cerrar sesión</a></li>
+                </ul>
+              </div>
             </div>
         </div>
 

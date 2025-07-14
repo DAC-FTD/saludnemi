@@ -102,40 +102,42 @@ function siguientePregunta() {
   if (indiceActual >= preguntas.length) {
     document.getElementById('quiz-container').innerHTML = `<div class="alert alert-success">¡Test finalizado!
     <p>Obtuviste <strong>${totalCorrectas * 100}</strong> puntos.</p></div>`;
-    //registrarPuntajeFinal();
+    const puntaje = totalCorrectas * 100;
+    enviarPuntaje(puntaje);
     return;
   }
 
   mostrarPregunta(); // Cambio inmediato sin loader ni delay
 }
 
-function registrarPuntajeFinal() {
-  const puntaje = totalCorrectas * 100;
-  const usuario = localStorage.getItem('usuarioNombre') || 'Anónimo';
 
-  const datos = {
-    usuario: usuario,
-    nivel: nivelSeleccionado,
-    puntaje: puntaje
-  };
+function enviarPuntaje(puntaje) {
+  const correo = localStorage.getItem("correoUsuario");
+  const nombre = localStorage.getItem("nombreUsuario");
 
-  fetch('https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec', {
-    method: 'POST',
-    body: JSON.stringify({
-        accion: 'enviarPuntaje',
-        datos 
-    }),
-    headers: {
-        'Content-Type': 'application/json'
-    }
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec";
+
+  const formData = new FormData();
+  formData.append("correo", correo);
+  formData.append("nivel", nivelSeleccionado);
+  formData.append("puntos", puntaje);
+
+  fetch(scriptUrl, {
+    method: "POST",
+    body: formData
   })
-  .then(res => res.json())
-  .then(data => {
-    console.log('✅ Puntaje registrado:', data);
-  })
-  .catch(err => {
-    console.error('❌ Error al registrar puntaje:', err);
-  });
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === "ok") {
+        alert("Puntaje guardado correctamente");
+      } else {
+        alert("Error al guardar puntaje: " + data.mensaje);
+      }
+    })
+    .catch(err => {
+      console.error("Error al registrar puntaje:", err);
+      alert("No se pudo guardar el puntaje.");
+    });
 }
 
 window.onload = cargarPreguntas;

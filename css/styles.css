@@ -3,6 +3,31 @@ body {
   background-color: #1C3247;
 }
 
+/* Para hacer que el contenido principal se desplace a la derecha del sidebar */
+main {
+  margin-left: 250px; /* Espacio para el sidebar */
+}
+
+/*MENU DEL PERFIL*/
+.dropdown{
+  padding: auto;
+}
+.dropdown-menu {
+  min-width: 180px;
+  font-size: 16x;
+}
+.dropdown-toggle {
+  border: none;
+  color: white;
+}
+.dropdown-toggle:focus {
+  border: none;
+}
+.dropdown-toggle:hover {
+  background-color: #40435cb4; /* tu color principal */
+  color: white;
+}
+/*MENU LATERAL*/
 /* Aseguramos que el sidebar ocupe el 100% de la altura de la pantalla */
 #sidebar {
   background-color: #1C3247;
@@ -13,66 +38,26 @@ body {
   left: 0;
   z-index: 1000; /* Para que se superponga sobre el contenido */
   border-right: 0.15rem solid rgb(92, 107, 116) ;
-  
+
 }
-
-/* Para hacer que el contenido principal se desplace a la derecha del sidebar */
-main {
-  margin-left: 250px; /* Espacio para el sidebar */
-}
-
-/* Para dispositivos pequeños, cambiar la posición del sidebar */
-@media (max-width: 768px) {
-  #sidebar {
-    position: fixed;
-    left: -250px; /* Inicialmente está oculto */
-    top: 0;
-    transition: left 0.3s ease;
-  }
-
-  #sidebar.open {
-    left: 0; /* Cuando esté abierto, se mueve al lado izquierdo */
-  }
-
-  main {
-    margin-left: 0; /* Sin margen en pantallas pequeñas */
-  }
-
-  /* Estilos para el botón de abrir/cerrar el sidebar */
-  .sidebar-toggle {
-    display: block;
-    background-color: #4d5863;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    font-size: 18px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1100; /* Encima del sidebar */
-  }
-}
-
 #sidebar h3 {
   color: #fff;
   font-size: 24px;
 
 }
-
 .nav-item {
   margin: 10px 0;
 }
-
 .nav-link {
   font-size: 18px;
   color: #d3d3d3;
 }
-
 .nav-link:hover {
   color: #fff;
   background-color: #fd7505e0;
   border-radius: 5px;
 }
+
 
 .card {
   margin: 7px 0;
