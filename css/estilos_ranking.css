@@ -50,3 +50,37 @@
 .top-1 { color: #f3d008; font-size: 2.5rem;}
 .top-2 { color: #a5a4a4; font-size: 2rem;}
 .top-3 { color: #d4791e; font-size: 1.7rem;}
+
+
+.ranking-usuario {
+  background-color: rgb(205, 220, 235) !important;
+  color: #1C3247 !important;
+  font-size: 0.95rem;
+}
+
+.ranking-position-user {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.ranking-left-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ranking-avatar-user {
+  width: auto;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.25rem solid #1C3247;
+}
+
+.ranking-name-user {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.ranking-score-user {
+  font-size: 1.5rem;
+}

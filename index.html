@@ -99,6 +99,30 @@
   <!-- Scripts de Bootstrap y JS para el botón del sidebar -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+  const puntaje = localStorage.getItem("puntajeUsuario");
+  const usuario = localStorage.getItem('correoUsuario'); // 
+  const nombreusuario = localStorage.getItem('nombreUsuario');
+  if (!usuario) {
+    window.location.href = "login.html";
+  } else {
+    cargarContenido('contenido_inicio.html', () => {
+      // Esta función se ejecuta después de cargar el contenido
+        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+             // Acción del botón "Cerrar sesión"
+        document.getElementById('cerrarSesion').addEventListener('click', () => {
+          localStorage.clear();
+          window.location.href = 'login.html';
+        });
+        // Acción del botón "Perfil" (puedes personalizar esto)
+        document.getElementById('verPerfil').addEventListener('click', () => {
+          alert("Función de perfil en construcción 🚧");
+        });
+
+    });
+  }
+});
+
     // Función para cargar el contenido dinámicamente en el <main>
     function cargarContenido(url, callback) {
       fetch(url)
@@ -116,33 +140,28 @@
       const puntaje = localStorage.getItem("puntajeUsuario");
       const usuario = localStorage.getItem('correoUsuario'); // 
       const nombreusuario = localStorage.getItem('nombreUsuario');
-     cargarContenido('contenido_inicio.html', () => {
-      // Esta función se ejecuta después de cargar el contenido
-      const el = document.getElementById("puntajeActual");
-      if (el) {
-        el.innerHTML = `<strong>${puntaje} pts</strong>`;
-        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
-             // Acción del botón "Cerrar sesión"
-        document.getElementById('cerrarSesion').addEventListener('click', () => {
-          localStorage.clear();
-          window.location.href = 'login.html';
-        });
+      cargarContenido('contenido_inicio.html', () => {
+        // Esta función se ejecuta después de cargar el contenido
+          document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+              // Acción del botón "Cerrar sesión"
+          document.getElementById('cerrarSesion').addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'login.html';
+          });
+          // Acción del botón "Perfil" (puedes personalizar esto)
+          document.getElementById('verPerfil').addEventListener('click', () => {
+            alert("Función de perfil en construcción ");
+          });
 
-        // Acción del botón "Perfil" (puedes personalizar esto)
-        document.getElementById('verPerfil').addEventListener('click', () => {
-          alert("Función de perfil en construcción 🚧");
-        });
-
-      }
-    });
+      });
     });
 
+    //RANKING
     document.getElementById('rankingLink').addEventListener('click', function(event) {
       event.preventDefault();
-      cargarContenido('contenido_ranking.html'); // Contenido para "Ranking"
-      cargarRanking();
-      // Esperar a que el DOM esté actualizado
-   
+      cargarContenido('contenido_ranking.html', () => {
+        cargarRanking(); // ✔ Ejecutar solo cuando el HTML esté ya presente
+      });
     });
 
     document.getElementById('recursosLink').addEventListener('click', function(event) {
@@ -179,35 +198,6 @@ function testNivel(nivel) {
   // Redirigir a la página de preguntas, pasando el nivel como parámetro
   window.location.href = `contenido_preguntas.html?nivel=${nivel}`;
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-  const puntaje = localStorage.getItem("puntajeUsuario");
-  const usuario = localStorage.getItem('correoUsuario'); // 
-  const nombreusuario = localStorage.getItem('nombreUsuario');
-  if (!usuario) {
-    window.location.href = "login.html";
-  } else {
-    cargarContenido('contenido_inicio.html', () => {
-      // Esta función se ejecuta después de cargar el contenido
-      const el = document.getElementById("puntajeActual");
-      if (el) {
-        el.innerHTML = `<strong>${puntaje} pts</strong>`;
-        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
-             // Acción del botón "Cerrar sesión"
-        document.getElementById('cerrarSesion').addEventListener('click', () => {
-          localStorage.clear();
-          window.location.href = 'login.html';
-        });
-
-        // Acción del botón "Perfil" (puedes personalizar esto)
-        document.getElementById('verPerfil').addEventListener('click', () => {
-          alert("Función de perfil en construcción 🚧");
-        });
-
-      }
-    });
-  }
-});
   </script>
 
 </body>
