@@ -32,7 +32,7 @@ main {
 #sidebar {
   background-color: #1C3247;
   height: 100vh; /* Toma toda la altura de la pantalla */
-  padding-top: 50px;
+  padding-top: 1rem;
   position: fixed; /* Fijo para no moverse con el scroll */
   top: 0;
   left: 0;
@@ -43,7 +43,6 @@ main {
 #sidebar h3 {
   color: #fff;
   font-size: 24px;
-
 }
 .nav-item {
   margin: 10px 0;
@@ -144,4 +143,22 @@ main {
   .nav-link {
     font-size: 16px;
   }
+
+.card-nivel.bloqueado {
+  opacity: 0.5;
+  pointer-events: none;
+  position: relative;
+}
+
+.card-nivel.bloqueado::after {
+  content: "🔒 Nivel bloqueado";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+}
 }

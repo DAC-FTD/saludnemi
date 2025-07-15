@@ -55,13 +55,10 @@
 <body>
 
   <div class="container-fluid">
-    <!-- Botón para abrir/cerrar el sidebar en dispositivos móviles -->
-    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
-    
     <!-- Barra lateral -->
     <div id="sidebar" class="col-md-2 col-lg-2 d-md-block text-white">
+      <h3 class="mt-1 mx-3">SALUDNEMI</h3>
       <div class="position-sticky">
-        <h3 class="my-2 mx-3">SALUDNEMI</h3>
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="inicioLink">
@@ -89,6 +86,26 @@
         </ul>
       </div>
     </div>
+
+    <!-- Navbar superior -->
+    <nav class="navbar navbar-expand-lg" style="height: 60px;">
+      <div class="container-fluid d-flex justify-content-end">
+              <div class="dropdown">
+                <button class="dropdown-toggle btn" type="button" id="perfilDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img width="38" height="auto" src="https://img.icons8.com/arcade/64/nurse-female.png" alt="nurse-female"/>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end text-sm" aria-labelledby="perfilDropdown">
+                  <li class="dropdown-header fw-bold" id="infoUsuario">
+                    <!-- Aquí se carga el nombre/correo dinámicamente -->
+                  </li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" id="verPerfil">Perfil</a></li>
+                  <li><a class="dropdown-item text-danger" href="#" id="cerrarSesion">Cerrar sesión</a></li>
+                </ul>
+              </div>
+      </div>
+    </nav>
+
 
     <!-- Contenido principal -->
     <main id="mainContent" class="col-md-9 ms-auto col-lg-10 px-4">
