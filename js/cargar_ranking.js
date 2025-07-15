@@ -1,6 +1,6 @@
 function cargarRanking() {
   const contenedor = document.getElementById("rankingLista");
-  contenedor.innerHTML = `<div class="text-center text-white mb-2">Cargando ranking...</div>`; // mensaje inicial
+  contenedor.innerHTML = `<div class="text-center fw-bold text-white">Cargando ranking...</div>`; // mensaje inicial
 
   fetch('https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec?ranking=true')
     .then(response => response.json())

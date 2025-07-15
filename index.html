@@ -160,7 +160,7 @@
     document.getElementById('rankingLink').addEventListener('click', function(event) {
       event.preventDefault();
       cargarContenido('contenido_ranking.html', () => {
-        cargarRanking(); // ✔ Ejecutar solo cuando el HTML esté ya presente
+        cargarRanking(); // Ejecutar solo cuando el HTML esté ya presente
       });
     });
 
@@ -169,22 +169,10 @@
       cargarContenido('contenido_recursos.html'); // Contenido para "Recursos"
     });
 
-    /*document.getElementById('perfilLink').addEventListener('click', function(event) {
-      event.preventDefault();
-      cargarContenido('contenido_perfil.html'); // Contenido para "Perfil"
-    });*/
-
     document.getElementById('aboutUsLink').addEventListener('click', function(event) {
       event.preventDefault();
       cargarContenido('contenido_aboutus.html'); // Contenido para "About Us"
     });
-
-    /*document.getElementById('cerrarSesion').addEventListener('click', function(event) {
-      event.preventDefault();
-      localStorage.clear(); // Borra todos los datos de sesión
-      window.location.href = "login.html";
-      }); */
-
 
     // JS para manejar la apertura y cierre del sidebar
     const sidebar = document.getElementById('sidebar');

@@ -13,13 +13,70 @@
   <!--scripts-->
   <script src="js/preguntas.js"></script>
 
+  <style>
+  .pantalla-final {
+  background: rgb(9, 156, 161, 0.808);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 25px;
+  font-family: 'Nunito','Fredoka', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.caja-mensaje {
+  background-color: white;
+  color: #1C3247;
+  border-radius: 25px;
+  padding: 25px 35px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-size: 1.8rem;
+}
+
+.caja-mensaje span {
+  font-weight: 700;
+}
+
+.botones .btn {
+  width: 30%;
+  height: 30%;
+  border-radius: 4rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cargando{
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Nunito','Fredoka', sans-serif;
+  color: whitesmoke;
+}
+
+.spinner {
+  margin-left:auto; 
+  margin-right:auto;
+  border: 2px solid #eee;
+  border-top: 6px solid rgb(9, 156, 161, 0.808);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  </style>
+
 </head>
 <body>
 
 <!-- Pantalla de carga inicial -->
-<div id="pantalla-carga" class="pantalla-carga">
-  <p style="color: white;" >Cargando preguntas...</p>
-  <div class="spinner-border text-white" role="status"></div>
+<div id="pantalla-carga" class="pantalla-carga loader">
+  <p class="cargando" >Cargando preguntas...</p>
+  <div class="spinner text-white" role="status"></div>
 </div>
 
 <!-- Contenido del test (oculto al inicio) -->
