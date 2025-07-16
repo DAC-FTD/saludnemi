@@ -18,20 +18,6 @@
 
 </head>
 <style>
- .botoncontinuar{
-  background-color: white;
-  border: 0 ;
-  border-radius: 0.85rem;
-  height: 3rem;
-  width: 90%;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  cursor: pointer;
- }
- .botoncontinuar:hover {
-  background-color: rgb(146, 185, 171);;
-  color: white;
-  box-shadow: 0 4px 8px rgba(190, 187, 187, 0.2);
-}
 
 .pantalla-carga {
   position: fixed;
@@ -57,31 +43,32 @@
 
   <div class="container-fluid">
     <!-- Barra lateral -->
-    <div id="sidebar" class="col-md-2 col-lg-2 d-md-block text-white">
+    <div id="sidebar" class="col-md-2 col-lg-2 d-md-block text-white mobile-nav">
       <h3 class="mt-1 mx-3">SALUDNEMI</h3>
       <div class="position-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="inicioLink">
             <img width="20%" height="20%" src="https://img.icons8.com/fluency/96/home.png" alt="home"/>
-            <strong> APRENDER</strong> 
+            <span class="nombreOpcion"><strong> APRENDER</strong></span> 
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="#" id="rankingLink">
-              <img width="20%" height="20%" src="https://img.icons8.com/fluency/48/trophy--v1.png" alt="trophy--v1"/> <strong> RANKING</strong> 
+              <img width="20%" height="20%" src="https://img.icons8.com/fluency/48/trophy--v1.png" alt="trophy--v1"/> 
+              <span class="nombreOpcion"><strong> RANKING</strong></span> 
             </a>
           </li>
-          <!--<li class="nav-item">
-            <a class="nav-link text-white" href="#" id="recursosLink">
-              <img width="20%" height="20%" src="https://img.icons8.com/3d-fluency/94/books.png" alt="books"/>
-               <strong> RECURSOS</strong> 
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#" id="perfilLink">
+              <img width="20%" height="20%" src="https://img.icons8.com/arcade/64/nurse-female.png" alt="books"/>
+               <span class="nombreOpcion"><strong> PERFIL</strong></span>
             </a>
-          </li> -->
+          </li> 
           <li class="nav-item">
             <a class="nav-link text-white" href="about-us.html" id="aboutUsLink">
               <img width="20%" height="20%" src="https://img.icons8.com/avantgarde/100/info.png" alt="info"/>
-               <strong> NOSOTROS</strong> 
+               <span class="nombreOpcion"><strong> NOSOTROS</strong></span> 
             </a>
           </li>
         </ul>
@@ -100,8 +87,7 @@
                     <!-- Aquí se carga el nombre/correo dinámicamente -->
                   </li>
                   <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#" id="verPerfil">Perfil</a></li>
-                  <li><a class="dropdown-item text-danger" href="#" id="cerrarSesion">Cerrar sesión</a></li>
+                  <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a></li>
                 </ul>
               </div>
       </div>
@@ -127,7 +113,7 @@
         cargarContenido('contenido_inicio.html', () => {
           desbloquearNiveles();
             // Esta función se ejecuta después de cargar el contenido
-            document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+            document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div>${usuario}</div>`;
             // Acción del botón "Cerrar sesión"
             document.getElementById('cerrarSesion').addEventListener('click', () => {
             localStorage.clear();
@@ -220,7 +206,7 @@
       cargarContenido('contenido_inicio.html', () => {
         desbloquearNiveles();
       // Esta función se ejecuta después de cargar el contenido
-        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div>${usuario}</div>`;
             // Acción del botón "Cerrar sesión"
         document.getElementById('cerrarSesion').addEventListener('click', () => {
           localStorage.clear();
@@ -242,10 +228,10 @@
       });
     });
 
-   /* document.getElementById('recursosLink').addEventListener('click', function(event) {
+    document.getElementById('perfilLink').addEventListener('click', function(event) {
       event.preventDefault();
-      cargarContenido('contenido_recursos.html'); // Contenido para "Recursos"
-    }); */
+      cargarContenido('#'); // Contenido para "Perfil"
+    }); 
 
     document.getElementById('aboutUsLink').addEventListener('click', function(event) {
       event.preventDefault();
