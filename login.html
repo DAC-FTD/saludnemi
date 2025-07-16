@@ -119,6 +119,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         localStorage.setItem("nivel4", data.nivel4);
         localStorage.setItem("nivel5", data.nivel5);
         localStorage.setItem("puntajeUsuario", data.puntaje || 0);
+        //alert( localStorage.getItem("nivel1", data.nivel1));
         window.location.href = "index.html";
       } else {
        alert("Correo no registrado. Solicita acceso al administrador.");

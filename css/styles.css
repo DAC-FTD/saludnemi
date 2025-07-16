@@ -27,6 +27,7 @@ main {
   background-color: #40435cb4; /* tu color principal */
   color: white;
 }
+
 /*MENU LATERAL*/
 /* Aseguramos que el sidebar ocupe el 100% de la altura de la pantalla */
 #sidebar {
@@ -57,7 +58,7 @@ main {
   border-radius: 5px;
 }
 
-
+/*CONTENIDO - NIVELES*/
 .card {
   margin: 7px 0;
   color: #fff;
@@ -131,6 +132,11 @@ main {
   height: 170px;
 }
 
+.progress-bar {
+  background-color: #FE9900 ; /* color dorado */
+
+}
+
 @media (max-width: 768px) {
   #sidebar {
     position: absolute;
@@ -155,21 +161,4 @@ main {
     font-size: 16px;
   }
 
-.card-nivel.bloqueado {
-  opacity: 0.5;
-  pointer-events: none;
-  position: relative;
-}
-
-.card-nivel.bloqueado::after {
-  content: "🔒 Nivel bloqueado";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-weight: bold;
-}
 }

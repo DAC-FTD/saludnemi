@@ -132,8 +132,8 @@ function enviarPuntaje(puntaje) {
     .then(res => res.json())
     .then(data => {
       if (data.status === "ok") {
-        mostrarFinal(puntaje); // Mostrar solo cuando se confirme el guardado
         cargarPuntajes(correo);
+        mostrarFinal(puntaje); // Mostrar solo cuando se confirme el guardado
 
       } else {
        // alert("Error al guardar puntaje: " + data.mensaje);
@@ -172,7 +172,7 @@ function cargarPuntajes(correouser){
       localStorage.setItem("nivel3", data.nivel3);
       localStorage.setItem("nivel4", data.nivel4);
       localStorage.setItem("nivel5", data.nivel5);
-      alert(localStorage.getItem('nivel1'));
+      //alert(localStorage.getItem('nivel1'));
     }
   });
 }

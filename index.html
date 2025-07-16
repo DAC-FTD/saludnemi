@@ -158,9 +158,24 @@
       niveles.forEach(nivel => {
         const card = document.querySelector(`.card-nivel[data-nivel="${nivel}"]`);
         if (!card) return;
+          const barra = card.querySelector('.progress-bar');
+          const texto = card.querySelector('#progresoTexto');
+          const puntaje = parseInt(localStorage.getItem(`nivel${nivel}`)) || 0;
+          const porcentaje = Math.min((puntaje / puntLimite) * 100, 100);
+          const puntosVisibles = Math.min(puntaje, puntLimite);
+          if (barra) {
+            barra.style.width = '0%'; // establecer valor inicial explícitamente
+            requestAnimationFrame(() => {
+              setTimeout(() => {
+                barra.style.width = porcentaje + '%'; // aplicar con animación
+              }, 50); // breve retraso para forzar transición
+            });
+          }          
+          if (texto) texto.textContent = puntosVisibles;
 
         if (nivel === 1) {
           desbloquearCard(card); // nivel 1 siempre desbloqueado
+
         } else {
           const puntajePrevio = parseInt(localStorage.getItem(`nivel${nivel - 1}`)) || 0;
           if (puntajePrevio >= puntLimite) {
