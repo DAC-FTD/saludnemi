@@ -117,7 +117,6 @@ function siguientePregunta() {
 
 function enviarPuntaje(puntaje) {
   const correo = localStorage.getItem("correoUsuario");
-  const nombre = localStorage.getItem("nombreUsuario");
 
   const scriptUrl = "https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec";
 
@@ -134,6 +133,8 @@ function enviarPuntaje(puntaje) {
     .then(data => {
       if (data.status === "ok") {
         mostrarFinal(puntaje); // Mostrar solo cuando se confirme el guardado
+        cargarPuntajes(correo);
+
       } else {
        // alert("Error al guardar puntaje: " + data.mensaje);
       }
@@ -160,6 +161,21 @@ function mostrarFinal(puntaje) {
   `;
 }
 
+function cargarPuntajes(correouser){
+  fetch(`https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec?getUserData=true&correo=${correouser}`)
+  .then(r => r.json())
+  .then(data => {
+    if (data.status === "ok") {
+      localStorage.setItem("puntajeUsuario", data.puntaje);
+      localStorage.setItem("nivel1", data.nivel1);
+      localStorage.setItem("nivel2", data.nivel2);
+      localStorage.setItem("nivel3", data.nivel3);
+      localStorage.setItem("nivel4", data.nivel4);
+      localStorage.setItem("nivel5", data.nivel5);
+      alert(localStorage.getItem('nivel1'));
+    }
+  });
+}
 
 window.onload = cargarPreguntas;
 //window.onload = mostrarFinal(100);

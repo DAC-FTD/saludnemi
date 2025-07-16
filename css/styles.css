@@ -79,6 +79,17 @@ main {
   width: 85%;
   margin-left: 3rem;
 }
+.card-nivel.bloqueado {
+  filter: grayscale(100%);
+  border: 2px dashed #ccc;
+  transition: all 0.3s ease;
+}
+.botoncontinuar.btn-disabled {
+  background-color: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+}
+
 .info_img{
  padding:auto ;
 }

@@ -15,6 +15,7 @@
   <!--scripts-->
   <script src="js/cargar_ranking.js"></script>
 
+
 </head>
 <style>
  .botoncontinuar{
@@ -117,28 +118,28 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-  const puntaje = localStorage.getItem("puntajeUsuario");
-  const usuario = localStorage.getItem('correoUsuario'); // 
-  const nombreusuario = localStorage.getItem('nombreUsuario');
-  if (!usuario) {
-    window.location.href = "login.html";
-  } else {
-    cargarContenido('contenido_inicio.html', () => {
-      // Esta función se ejecuta después de cargar el contenido
-        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
-             // Acción del botón "Cerrar sesión"
-        document.getElementById('cerrarSesion').addEventListener('click', () => {
-          localStorage.clear();
-          window.location.href = 'login.html';
+      const puntaje = localStorage.getItem("puntajeUsuario");
+      const usuario = localStorage.getItem('correoUsuario');  
+      const nombreusuario = localStorage.getItem('nombreUsuario');
+      if (!usuario) {
+        window.location.href = "login.html";
+      } else {
+        cargarContenido('contenido_inicio.html', () => {
+          desbloquearNiveles();
+            // Esta función se ejecuta después de cargar el contenido
+            document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+            // Acción del botón "Cerrar sesión"
+            document.getElementById('cerrarSesion').addEventListener('click', () => {
+            localStorage.clear();
+            window.location.href = 'login.html';
+          });
+          // Acción del botón "Perfil" (puedes personalizar esto)
+          document.getElementById('verPerfil').addEventListener('click', () => {
+            alert("Función de perfil en construcción 🚧");
+          });
         });
-        // Acción del botón "Perfil" (puedes personalizar esto)
-        document.getElementById('verPerfil').addEventListener('click', () => {
-          alert("Función de perfil en construcción 🚧");
-        });
-
+      }
     });
-  }
-});
 
     // Función para cargar el contenido dinámicamente en el <main>
     function cargarContenido(url, callback) {
@@ -151,6 +152,50 @@
         .catch(error => console.error('Error al cargar el contenido:', error));
     }
 
+    function desbloquearNiveles() {
+      const niveles = [1, 2, 3, 4, 5];
+      const puntLimite= 2000;
+      niveles.forEach(nivel => {
+        const card = document.querySelector(`.card-nivel[data-nivel="${nivel}"]`);
+        if (!card) return;
+
+        if (nivel === 1) {
+          desbloquearCard(card); // nivel 1 siempre desbloqueado
+        } else {
+          const puntajePrevio = parseInt(localStorage.getItem(`nivel${nivel - 1}`)) || 0;
+          if (puntajePrevio >= puntLimite) {
+            desbloquearCard(card);
+          } else {
+            bloquearCard(card);
+          }
+        }
+      });
+    }
+
+    function bloquearCard(card) {
+      card.classList.add('bloqueado');
+      const boton = card.querySelector('.botoncontinuar');
+      if (boton) {
+        boton.disabled = true;
+        boton.innerHTML = '<strong>🔒 BLOQUEADO</strong>';
+        boton.classList.add('btn-disabled');
+      }
+      card.style.opacity = '0.5';
+      card.style.pointerEvents = 'none';
+    }
+
+    function desbloquearCard(card) {
+      card.classList.remove('bloqueado');
+      const boton = card.querySelector('.botoncontinuar');
+      if (boton) {
+        boton.disabled = false;
+        boton.innerHTML = '<strong>CONTINUAR</strong>';
+        boton.classList.remove('btn-disabled');
+      }
+      card.style.opacity = '1';
+      card.style.pointerEvents = 'auto';
+    }
+
     // Interceptar clics en los enlaces y cargar el contenido correspondiente
     document.getElementById('inicioLink').addEventListener('click', function(event) {
       event.preventDefault();
@@ -158,17 +203,18 @@
       const usuario = localStorage.getItem('correoUsuario'); // 
       const nombreusuario = localStorage.getItem('nombreUsuario');
       cargarContenido('contenido_inicio.html', () => {
-        // Esta función se ejecuta después de cargar el contenido
-          document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
-              // Acción del botón "Cerrar sesión"
-          document.getElementById('cerrarSesion').addEventListener('click', () => {
-            localStorage.clear();
-            window.location.href = 'login.html';
-          });
-          // Acción del botón "Perfil" (puedes personalizar esto)
-          document.getElementById('verPerfil').addEventListener('click', () => {
-            alert("Función de perfil en construcción ");
-          });
+        desbloquearNiveles();
+      // Esta función se ejecuta después de cargar el contenido
+        document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div class="text-muted small">${usuario}</div>`;
+            // Acción del botón "Cerrar sesión"
+        document.getElementById('cerrarSesion').addEventListener('click', () => {
+          localStorage.clear();
+          window.location.href = 'login.html';
+        });
+        // Acción del botón "Perfil" (puedes personalizar esto)
+        document.getElementById('verPerfil').addEventListener('click', () => {
+          alert("Función de perfil en construcción ");
+        });
 
       });
     });
@@ -191,13 +237,6 @@
       cargarContenido('contenido_aboutus.html'); // Contenido para "About Us"
     });
 
-    // JS para manejar la apertura y cierre del sidebar
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebarToggle');
-
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
 
 function testNivel(nivel) {
   // Redirigir a la página de preguntas, pasando el nivel como parámetro

@@ -113,10 +113,15 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         // Guardar en localStorage
         localStorage.setItem("correoUsuario", correo);
         localStorage.setItem("nombreUsuario", data.nombre);
+        localStorage.setItem("nivel1", data.nivel1);
+        localStorage.setItem("nivel2", data.nivel2);
+        localStorage.setItem("nivel3", data.nivel3);
+        localStorage.setItem("nivel4", data.nivel4);
+        localStorage.setItem("nivel5", data.nivel5);
         localStorage.setItem("puntajeUsuario", data.puntaje || 0);
         window.location.href = "index.html";
       } else {
-        alert("Correo no registrado. Solicita acceso al administrador.");
+       alert("Correo no registrado. Solicita acceso al administrador.");
       }
     })
     .catch(err => {
