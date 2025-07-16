@@ -172,7 +172,6 @@ function cargarPuntajes(correouser){
       localStorage.setItem("nivel3", data.nivel3);
       localStorage.setItem("nivel4", data.nivel4);
       localStorage.setItem("nivel5", data.nivel5);
-      //alert(localStorage.getItem('nivel1'));
     }
   });
 }

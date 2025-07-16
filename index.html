@@ -173,17 +173,17 @@
           }          
           if (texto) texto.textContent = puntosVisibles;
 
-        if (nivel === 1) {
-          desbloquearCard(card); // nivel 1 siempre desbloqueado
+          if (nivel === 1) {
+            desbloquearCard(card); // nivel 1 siempre desbloqueado
 
-        } else {
-          const puntajePrevio = parseInt(localStorage.getItem(`nivel${nivel - 1}`)) || 0;
-          if (puntajePrevio >= puntLimite) {
-            desbloquearCard(card);
           } else {
-            bloquearCard(card);
+            const puntajePrevio = parseInt(localStorage.getItem(`nivel${nivel - 1}`)) || 0;
+            if (puntajePrevio >= puntLimite) {
+              desbloquearCard(card);
+            } else {
+              bloquearCard(card);
+            }
           }
-        }
       });
     }
 
