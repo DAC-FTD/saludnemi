@@ -32,7 +32,6 @@
       justify-content: center;
       flex-direction: column;
     }
-
     .card {
       background-color: rgb(15, 134, 150);
       color:rgb(255, 255, 255);
@@ -40,6 +39,9 @@
       padding: 1rem;
       padding-left: 2rem;
       padding-right: 2rem;
+      margin: auto;
+      min-width: 80%;
+      max-width: 90%;
     }
 
     .alert-success {
@@ -67,12 +69,13 @@
     .btnRetro:hover {
       background-color: #c27400;
     }
-
+    .btnregresar{
+      padding-left: 10%;
+    }
     .btnSiguiente {
       background-color: #2caa30;
       color: white;
       border: none;
-      width: 40%;
       transition: background-color 0.3s ease;
     }
 
@@ -86,29 +89,60 @@
       margin: auto;
     }
 
-    /* Cofiguración (para móviles) */
-    @media (max-width: 576px) {
-      #cardPregunta {
-        font-size: 15px;
-        padding: 1.5rem;
-      }
-
-      .opcion {
-        padding: 10px 14px;
-        font-size: 14px;
-      }
-
-      #preguntaTexto {
-        font-size: 15px;
-      }
-
-      button {
-        width: 50%;
-        font-size: 15px;
-        margin-bottom: 0.5rem;
-      }
-
-      #respuestaFeedback {
-        font-size: 14px;
-      }
+    .pantalla-final {
+      background: rgb(9, 156, 161, 0.808);
+      color: white;
+      padding: 60px 20px;
+      border-radius: 25px;
+      font-family: 'Nunito','Fredoka', sans-serif;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
+    .caja-mensaje {
+      background-color: white;
+      color: #1C3247;
+      border-radius: 25px;
+      padding: 25px 35px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 1.8rem;
+    }
+
+    .caja-mensaje span {
+      font-weight: 700;
+    }
+
+    .botones .btn {
+      width: 30%;
+      height: 30%;
+      border-radius: 4rem;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cargando{
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: 'Nunito','Fredoka', sans-serif;
+      color: whitesmoke;
+    }
+
+    .spinner {
+      margin-left:auto; 
+      margin-right:auto;
+      border: 2px solid #eee;
+      border-top: 6px solid rgb(9, 156, 161, 0.808);
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: girar 1s linear infinite;
+    }
+
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Cofiguración (para móviles) */
+ 

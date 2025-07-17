@@ -13,62 +13,7 @@
   <!--scripts-->
   <script src="js/preguntas.js"></script>
 
-  <style>
-  .pantalla-final {
-  background: rgb(9, 156, 161, 0.808);
-  color: white;
-  padding: 60px 20px;
-  border-radius: 25px;
-  font-family: 'Nunito','Fredoka', sans-serif;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
 
-.caja-mensaje {
-  background-color: white;
-  color: #1C3247;
-  border-radius: 25px;
-  padding: 25px 35px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  font-size: 1.8rem;
-}
-
-.caja-mensaje span {
-  font-weight: 700;
-}
-
-.botones .btn {
-  width: 30%;
-  height: 30%;
-  border-radius: 4rem;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cargando{
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-family: 'Nunito','Fredoka', sans-serif;
-  color: whitesmoke;
-}
-
-.spinner {
-  margin-left:auto; 
-  margin-right:auto;
-  border: 2px solid #eee;
-  border-top: 6px solid rgb(9, 156, 161, 0.808);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  animation: girar 1s linear infinite;
-}
-
-@keyframes girar {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-  </style>
 
 </head>
 <body>
@@ -82,8 +27,8 @@
 <!-- Contenido del test (oculto al inicio) -->
 <div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" id="quiz-container" style="display: none;">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-10">
-      <div class="d-flex justify-content-between mb-3">
+    <div class="col-12 col-md-12 col-lg-12">
+      <div class="btnregresar d-flex justify-content-between mb-3">
         <a href="index.html" class="btn btn-outline-secondary fw-bold">
           ← Regresar
         </a>
@@ -95,10 +40,10 @@
       <div class="row">
       <div id="respuestaFeedback" class="mt-2 col-lg-6"></div>
       <div class="mt-3 col-lg-6 d-flex flex-column align-items-end gap-2">
-        <button class="btn btnRetro mb-1" id="btnRetro" style="display: none; width: 40%;" data-bs-toggle="modal" data-bs-target="#modalRetro">
+        <button class="btn btnRetro mb-1" id="btnRetro" style="display: none; width: auto;" data-bs-toggle="modal" data-bs-target="#modalRetro">
           Ver retroalimentación
         </button>
-        <button class="btn btnSiguiente" id="btnSiguiente" onclick="siguientePregunta()" style="display: none; width: 40%">
+        <button class="btn btnSiguiente" id="btnSiguiente" onclick="siguientePregunta()" style="display: none; width: auto">
           Siguiente pregunta
         </button>
       </div>
