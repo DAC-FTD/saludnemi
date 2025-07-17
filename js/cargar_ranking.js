@@ -15,19 +15,19 @@ function cargarRanking() {
       const datosUsuario = ranking[posicionUsuario];
 
       const usuarioCard = document.createElement("div");
-      usuarioCard.className = "ranking-usuario shadow-sm text-dark mb-3 p-3 rounded";
+      usuarioCard.className = "ranking-usuario shadow-sm text-dark mb-3 p-2 rounded";
 
       usuarioCard.innerHTML = `
         <div class="row d-flex justify-content-between">
-          <div class="col-lg-2 ranking-left-user">
-           <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(datosUsuario?.nombre )}" class="ranking-avatar-user">
-          </div>
-          <div class="col-lg-10">
+          <div class="col-9 col-lg-9 ranking-text-user">
             <div class="ranking-name-user"><strong>Tú:</strong> ${datosUsuario?.nombre || "No identificado"}</div>
             <div class="row">
-              <div class="col-lg-auto ranking-position-user"><strong>Posición:</strong> #${posicionUsuario + 1}</div> 
-              <div class="col-lg-auto ranking-score-user"><strong>Puntos:</strong> ${datosUsuario?.puntaje || 0}</div>
+              <div class="col-lg-auto col-auto ranking-position-user"><strong>Posición:</strong> #${posicionUsuario + 1}</div> 
+              <div class="col-lg-auto col-auto ranking-score-user"><strong>Puntos:</strong> ${datosUsuario?.puntaje || 0}</div>
             </div>
+          </div>
+          <div class="col-3 col-lg-3 ranking-left-user">
+           <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(datosUsuario?.nombre )}" class="ranking-avatar-user">
           </div>
         </div>
       `;

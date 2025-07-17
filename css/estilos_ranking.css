@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: space-between;
   background: #1c3247d3;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   padding: 10px 15px;
   margin-bottom: 10px;
 }
@@ -62,18 +62,19 @@
   font-size: 1.5rem;
   text-align: left;
 }
-
+.ranking-text-user{
+  padding-left: 25px;
+}
 .ranking-left-user{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 35px;
 }
 .ranking-avatar-user {
   width: auto;
   height: 60px;
-  border-radius: 50%;
   object-fit: cover;
-  border: 0.25rem solid #1C3247;
 }
 
 .ranking-name-user {
@@ -83,4 +84,62 @@
 
 .ranking-score-user {
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .card_info_ranking{
+    display: none;
+  }
+  .text-ranking{
+    font-size:16px;
+    margin-top:10px;
+  }
+  .imagen_ranking{
+    height: 120px;
+    margin-top:10px;
+  }
+  .ranking-container{
+    max-width: 100%;
+  }
+  .ranking-text-user{
+    padding-left: 12px;
+
+  }
+  .ranking-avatar-user{
+    height: 48px;
+  }
+  .ranking-name-user{
+    font-size:20px;
+  }
+  .ranking-position-user{
+    font-size: 13px;
+    padding-right: 4px;    
+  }
+  .ranking-score-user{
+    font-size: 12px;
+    padding: 0;
+  }
+  .ranking-avatar {
+  width: auto;
+  height: 32px;
+  }
+  .ranking-name {
+    font-size: 14px;
+  }
+  .ranking-score {
+    font-size: 12px;
+  }
+  .ranking-position {
+    font-size: 16px;
+    width: 20px;
+  }
+  .ranking-left {
+    gap: 5x;
+  }
+  .ranking-item{
+    padding: 8px 7px;
+  }
+  .top-1 { color: #f3d008; font-size: 22px;}
+  .top-2 { color: #a5a4a4; font-size: 20px;}
+  .top-3 { color: #d4791e; font-size: 18px;}
 }
