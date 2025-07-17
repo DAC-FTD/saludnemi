@@ -70,7 +70,7 @@
       background-color: #c27400;
     }
     .btnregresar{
-      padding-left: 10%;
+      padding-left:5rem;
     }
     .btnSiguiente {
       background-color: #2caa30;
@@ -145,4 +145,85 @@
     }
 
     /* Cofiguración (para móviles) */
+
+  @media (max-width: 768px) {
+    .card {
+      padding: 1rem 1rem !important;
+      border-radius: 1rem;   
+
+    }
+    .btnregresar{
+      padding-top: 1rem;
+      padding-left: 1rem;
+    }
+    .btnregresar a{
+      font-size:12px ;
+    } 
+     .card p {
+    font-size:11px ;
+    }
+    .card h4 {
+    font-size:15px ;
+    }
+    .opcion{
+      font-size: 11px;
+      padding: 7px 12px;
+      cursor: pointer;
+      margin-bottom: 7px;
+    }
+    .alert-success {
+      height: 2rem;
+      font-size:11px ;
+
+    }
+    .alert-danger {
+      height: auto;
+      width: auto;
+      font-size:11px ;
+      padding: .20rem !important;
+    }
+    .btnRetro {
+      font-size: 11px;
+      padding: .40rem !important;
+    }
+    .btnSiguiente {
+      font-size: 11px;
+      padding: .40rem !important;
+
+    }
+    .botonera{
+      margin-top: 0.5rem !important;
+      gap: .25rem !important;
+      flex-direction: row !important;
+      align-items: center !important;
+    }
+    #respuestaFeedback{
+       margin-top: 0.15rem !important;
+    }
+    #modalRetro h5{
+      font-size: 14px;
+    }
+    #contenidoRetro{
+      font-size: 11px;
+      text-align: justify;
+    }
+    .modal-footer{
+      padding: 0.5rem;    
+    }
+    .modal-header{
+      padding: 0.5rem;    
+    }
+    .modal-header button{
+      font-size: 12px;
+    }
+    .modal-footer button{
+      font-size: 12px;
+    }
+        
+    .custom-modal-size {
+      display: flex;
+      max-width: 90%;
+      max-height: 80%;
+    }
+  }
  
