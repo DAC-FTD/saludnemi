@@ -4,19 +4,70 @@ color: whitesmoke;
 text-align: justify;
 }
 .info p{
-    padding-left: 0% !important;
-    padding-right: 0% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    font-size: 1.1rem;
 }
 .info h4{
-    padding-left: 0% !important;
-    padding-right: 0% !important;
+    padding-left:1rem !important;
+    padding-right: 1rem !important;
+    font-size: 1.8rem;
 }
 .info ul{
-padding-left: 1.5rem;
+padding-left: 2.5rem;
+font-size: 1.1rem;
+}
+.info ul li{
+padding-bottom:0.75rem;
 }
 .info ol{
-padding-left: 1.5rem;
+padding-left: 1.75rem;
+font-size: 1.1rem;
 }
+.info ol li{
+padding-bottom:0.75rem;
+}
+#infoCarrusel {
+  max-width: 100%;
+  overflow: hidden;
+  background-color: rgba(9, 156, 161, 0.808); /* tu color base oscuro */
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.carousel-inner {
+  overflow-x: hidden;
+  border-radius: 1rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FE9900;
+  border-radius: 50%;
+  opacity: 0.7;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 60% 60%;
+}
+.carousel-item {
+  min-height: 400px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #FE9900;
+  border-radius: 50%;
+}
+
 @media (max-width: 768px) {
  .info{
   font-size: 12px;
