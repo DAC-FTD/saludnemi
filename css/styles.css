@@ -135,6 +135,12 @@ main {
   background-color: #FE9900 ; /* color dorado */
 
 }
+.logo{
+  height: 23px;
+}
+.logo2{
+ display: none;
+}
 
 /*CONFIGURACION CELULAR*/
 
@@ -281,5 +287,12 @@ padding-right: 0.25rem !important;
 .dropdown-toggle:focus {
   background-color: #1C3247;
 }
-
+.logo1{
+ display: none;
+}
+.menu-perfil{
+ width: auto;
+ margin: 0%;
+ padding: 0%;
+}
 }

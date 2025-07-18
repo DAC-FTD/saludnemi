@@ -44,7 +44,9 @@
   <div class="container-fluid">
     <!-- Barra lateral -->
     <div id="sidebar" class="col-md-2 col-lg-2 d-md-block text-white mobile-nav">
-      <h3 class="mt-1 mx-3">SALUDNEMI</h3>
+      <div  class="logo1">
+        <img src="img/logo-SALUDNEMI.png" class="logo m-auto d-flex">
+      </div>
       <div class="position-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
@@ -77,19 +79,22 @@
 
     <!-- Navbar superior -->
     <nav class="navbar navbar-expand-lg" style="height: 60px;">
-      <div class="container-fluid d-flex justify-content-end">
-              <div class="dropdown">
-                <button class="dropdown-toggle btn" type="button" id="perfilDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img width="38" height="auto" src="https://img.icons8.com/arcade/64/nurse-female.png" alt="nurse-female"/>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end text-sm" aria-labelledby="perfilDropdown">
-                  <li class="dropdown-header fw-bold" id="infoUsuario">
-                    <!-- Aquí se carga el nombre/correo dinámicamente -->
-                  </li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a></li>
-                </ul>
-              </div>
+      <div  class="logo2 d-flex justify-content-start" >
+        <img src="img/logo-SALUDNEMI.png" class="logo m-auto d-flex">
+      </div>
+      <div class="container-fluid d-flex justify-content-end menu-perfil">
+        <div class="dropdown">
+          <button class="dropdown-toggle btn" type="button" id="perfilDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <img width="38" height="auto" src="https://img.icons8.com/arcade/64/nurse-female.png" alt="nurse-female"/>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end text-sm" aria-labelledby="perfilDropdown">
+            <li class="dropdown-header fw-bold" id="infoUsuario">
+              <!-- Aquí se carga el nombre/correo dinámicamente -->
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -120,9 +125,9 @@
             window.location.href = 'login.html';
           });
           // Acción del botón "Perfil" (puedes personalizar esto)
-          document.getElementById('verPerfil').addEventListener('click', () => {
+          /*document.getElementById('verPerfil').addEventListener('click', () => {
             alert("Función de perfil en construcción 🚧");
-          });
+          });*/
         });
       }
     });
@@ -213,9 +218,9 @@
           window.location.href = 'login.html';
         });
         // Acción del botón "Perfil" (puedes personalizar esto)
-        document.getElementById('verPerfil').addEventListener('click', () => {
+       /* document.getElementById('verPerfil').addEventListener('click', () => {
           alert("Función de perfil en construcción ");
-        });
+        });*/
 
       });
     });
