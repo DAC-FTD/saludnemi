@@ -72,6 +72,30 @@
       font-size: 0.9rem;
       color: #555;
     }
+
+    .cargando{
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: 'Nunito','Fredoka', sans-serif;
+      color: whitesmoke;
+    }
+
+    .spinner {
+      margin-left:auto; 
+      margin-right:auto;
+      border: 2px solid #eee;
+      border-top: 6px solid rgb(9, 156, 161, 0.808);
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      animation: girar 1s linear infinite;
+    }
+
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
   </style>
 </head>
 <body>
@@ -90,6 +114,10 @@
       <small>Desarrollado por DAC-UNEMI - © 2025</small>
     </div>
   </div>
+  <div id="pantalla-carga" class="pantalla-carga loader">
+  <p class="cargando" >Cargando preguntas...</p>
+  <div class="spinner text-white" role="status"></div>
+</div>
 
   <script>
  if (localStorage.getItem("correoUsuario")) {
