@@ -34,7 +34,7 @@
     }
     .card {
       background-color: rgb(15, 134, 150);
-      color:rgb(255, 255, 255);
+      color:rgb(218, 219, 223);
       border-radius: 1.5rem;
       padding: 1rem;
       padding-left: 2rem;
@@ -46,7 +46,7 @@
 
     .alert-success {
       background-color: #80dbae !important;
-      color: #368039;
+      color: #2a572b;
       height: auto;
       width: auto;
     }
@@ -82,6 +82,27 @@
     .btnSiguiente:hover {
       background-color: #3e8e41;
     }
+  .modal-content{
+    background-color: #e9e9e9;
+  }
+  .modal-header{
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    background-color: #fe9900;
+  }
+  .modal-body{
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  .modal-footer{
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  .modal-title{
+    font-weight: bold;
+    color: #1C3247;
+
+  }
 
     /* Tamaño del modal por defecto (para móviles) */
     .custom-modal-size {
