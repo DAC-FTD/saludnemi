@@ -219,11 +219,30 @@
     .modal-footer button{
       font-size: 12px;
     }
-        
     .custom-modal-size {
       display: flex;
       max-width: 90%;
       max-height: 80%;
+    }
+      
+    .pantalla-final {
+      margin: 1rem;
+      height: 360px;
+    }
+
+    .caja-mensaje {
+      padding: 15px 10px;
+      font-size: 1.4rem;
+    }
+    .caja-mensaje h2{
+      font-size: 1.4rem !important;
+    }
+    .caja-mensaje p{
+      margin-top: 0.5rem !important;
+      margin-bottom: 0.35rem;
+    }
+    .caja-mensaje span {
+      font-weight: 800;
     }
   }
  
