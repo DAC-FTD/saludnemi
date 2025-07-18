@@ -12,8 +12,10 @@
   <!--estilos-->
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/estilos_ranking.css" rel="stylesheet">
+||<link href="css/info.css" rel="stylesheet">
   <!--scripts-->
   <script src="js/cargar_ranking.js"></script>
+  
 
 
 </head>
@@ -68,7 +70,7 @@
             </a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link text-white" href="about-us.html" id="aboutUsLink">
+            <a class="nav-link text-white" href="#" id="aboutUsLink">
               <img width="20%" height="20%" src="https://img.icons8.com/avantgarde/100/info.png" alt="info"/>
                <span class="nombreOpcion"><strong> NOSOTROS</strong></span> 
             </a>
@@ -124,10 +126,6 @@
             localStorage.clear();
             window.location.href = 'login.html';
           });
-          // Acción del botón "Perfil" (puedes personalizar esto)
-          /*document.getElementById('verPerfil').addEventListener('click', () => {
-            alert("Función de perfil en construcción 🚧");
-          });*/
         });
       }
     });
@@ -217,10 +215,6 @@
           localStorage.clear();
           window.location.href = 'login.html';
         });
-        // Acción del botón "Perfil" (puedes personalizar esto)
-       /* document.getElementById('verPerfil').addEventListener('click', () => {
-          alert("Función de perfil en construcción ");
-        });*/
 
       });
     });
@@ -241,7 +235,7 @@
 
     document.getElementById('aboutUsLink').addEventListener('click', function(event) {
       event.preventDefault();
-      cargarContenido('contenido_aboutus.html'); // Contenido para "About Us"
+      cargarContenido('informacion.html'); // Contenido para "About Us"
     });
 
 
