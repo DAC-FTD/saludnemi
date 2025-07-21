@@ -305,4 +305,18 @@ padding-right: 0.25rem !important;
  margin: 0%;
  padding: 0%;
 }
+.img-bienv{
+  height: 140px !important;
+  width: 120px !important;
+}
+.modal-bienv{
+  display: block;
+  flex-direction: column-reverse;
+}
+.modal-bienv p{
+ font-size: 14px;
+}
+.titulo-bienv{
+  font-size: 16px;
+}
 }
