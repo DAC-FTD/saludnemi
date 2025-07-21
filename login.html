@@ -72,7 +72,19 @@
       font-size: 0.9rem;
       color: #555;
     }
-
+    .pantalla-carga {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(28, 50, 71, 0.85); /* fondo oscuro semitransparente */
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      display: none; /* Oculto por defecto */
+    }
     .cargando{
       font-size: 1.2rem;
       font-weight: bold;
@@ -99,7 +111,6 @@
   </style>
 </head>
 <body>
-
   <div class="login-container">
     <img src="img/logo-unemi.png" alt="Logo SaludNEMI">
     <h2>Accede a tu cuenta</h2>
@@ -114,53 +125,51 @@
       <small>Desarrollado por DAC-UNEMI - © 2025</small>
     </div>
   </div>
+
   <div id="pantalla-carga" class="pantalla-carga loader">
-  <p class="cargando" >Cargando preguntas...</p>
-  <div class="spinner text-white" role="status"></div>
-</div>
+    <p class="cargando" >Accediendo a tu cuenta...</p>
+    <div class="spinner text-white" role="status"></div>
+  </div>
 
-  <script>
- if (localStorage.getItem("correoUsuario")) {
-    window.location.href = "index.html";
-  }
-
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const correo = document.getElementById("correo").value.trim().toLowerCase();
-  const nombre = document.getElementById("nombre").value.trim();
-
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec";
-
-  const url = `${scriptUrl}?login=true&correo=${encodeURIComponent(correo)}`;
-
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      if (data.status === "ok") {
-        // Guardar en localStorage
-        localStorage.setItem("correoUsuario", correo);
-        localStorage.setItem("nombreUsuario", data.nombre);
-        localStorage.setItem("nivel1", data.nivel1);
-        localStorage.setItem("nivel2", data.nivel2);
-        localStorage.setItem("nivel3", data.nivel3);
-        localStorage.setItem("nivel4", data.nivel4);
-        localStorage.setItem("nivel5", data.nivel5);
-        localStorage.setItem("puntajeUsuario", data.puntaje || 0);
-        //alert( localStorage.getItem("nivel1", data.nivel1));
+<script>
+    if (localStorage.getItem("correoUsuario")) {
         window.location.href = "index.html";
-      } else {
-       alert("Correo no registrado. Solicita acceso al administrador.");
       }
-    })
-    .catch(err => {
-      console.error("Error en login:", err);
-      alert("Error de red o servidor");
-    });
-});
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const correo = document.getElementById("correo").value.trim().toLowerCase();
+      const nombre = document.getElementById("nombre").value.trim();
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec";
+      const url = `${scriptUrl}?login=true&correo=${encodeURIComponent(correo)}`;     
     
-  </script>
-  
+    document.getElementById("pantalla-carga").style.display = "flex";
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "ok") {
+          // Guardar en localStorage
+          localStorage.setItem("correoUsuario", correo);
+          localStorage.setItem("nombreUsuario", data.nombre);
+          localStorage.setItem("nivel1", data.nivel1);
+          localStorage.setItem("nivel2", data.nivel2);
+          localStorage.setItem("nivel3", data.nivel3);
+          localStorage.setItem("nivel4", data.nivel4);
+          localStorage.setItem("nivel5", data.nivel5);
+          localStorage.setItem("puntajeUsuario", data.puntaje || 0);
+          //alert( localStorage.getItem("nivel1", data.nivel1));
+          window.location.href = "index.html";
+        } else {
+        alert("Correo no registrado. Solicita acceso al administrador.");
+        document.getElementById("pantalla-carga").style.display = "none";
 
+        }
+      })
+      .catch(err => {
+        console.error("Error en login:", err);
+        alert("Error de red o servidor");
+        document.getElementById("pantalla-carga").style.display = "none";
+      });
+  });
+  </script>
 </body>
 </html>
