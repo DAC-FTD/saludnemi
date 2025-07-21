@@ -141,6 +141,16 @@ main {
 .logo2{
  display: none;
 }
+.indicador-inicio {
+  width: 90px;
+  animation: flotar 1s ease-in-out infinite;
+  z-index: 5;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
 
 /*CONFIGURACION CELULAR*/
 
