@@ -36,7 +36,9 @@
   font-size: 18px;
   margin-bottom: 10px;
 }
-
+.btnComenzar:hover{
+  background-color: #d38003ec !important;
+}
 </style>
 
 <body>
@@ -260,15 +262,19 @@ function testNivel(nivel) {
 
 <div class="modal fade" id="bienvenidaModal" tabindex="-1" aria-labelledby="bienvenidaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header">
-        <h5 class="modal-title" id="bienvenidaLabel">¡Hola!, Bienvenido a SALUDNEMI 🎉</h5>
+    <div class="modal-content" style="background-color:#d5dde3">
+      <div class="modal-header" style="border: none; padding-bottom:0%;">
+        <h5 class="modal-title" id="bienvenidaLabel" style="font-weight: bold; ">🎉 ¡Bienvenido a SALUDNEMI!</h5>
       </div>
-      <div class="modal-body">
-        <p>Esta es tu primera vez en la app. Aquí podrás aprender, avanzar por niveles y competir con tus compañeros. ¡Éxitos en tu aprendizaje! 🙌</p>
+      <div class="modal-body" style="display: flex; padding-bottom: 0%;">
+        <img src="img/tigrillo-bienvenida.png" alt="" style="width: auto; height: 250px; padding-left: 0.3rem; padding-right: 0.5rem;">
+        <div>
+          <p>Esta es tu plataforma educativa para aprender y reforzar tus conocimientos. Responde preguntas, gana puntos, desbloquea niveles y compite con tus compañeros.<br>¡Tu camino de aprendizaje empieza ahora! 💪📚</p>
+          <p>Encuentra mas informacion en la sección <strong>ℹ️Nosotros</strong> </p>      
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Comenzar</button>
+      <div class="modal-footer" style="padding-top:0.25rem; padding-bottom: 0.25rem; border-top: 5px solid #1C3247 !important;">
+        <button type="button" class="btn text-white btnComenzar" data-bs-dismiss="modal" style="background-color: #FE9900; "><strong>Comenzar</strong></button>
       </div>
     </div>
   </div>
