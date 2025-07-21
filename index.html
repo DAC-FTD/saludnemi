@@ -212,7 +212,14 @@
         document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div>${usuario}</div>`;
             // Acción del botón "Cerrar sesión"
         document.getElementById('cerrarSesion').addEventListener('click', () => {
-          localStorage.clear();
+          localStorage.removeItem("correoUsuario");
+          localStorage.removeItem("nombreUsuario");
+          localStorage.removeItem("nivel1");
+          localStorage.removeItem("nivel2");
+          localStorage.removeItem("nivel3");
+          localStorage.removeItem("nivel4");
+          localStorage.removeItem("nivel5");
+          localStorage.removeItem("puntajeUsuario");
           window.location.href = 'login.html';
         });
 

@@ -72,7 +72,7 @@
       font-size: 0.9rem;
       color: #555;
     }
-    .pantalla-carga {
+    .login-carga {
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
@@ -126,7 +126,7 @@
     </div>
   </div>
 
-  <div id="pantalla-carga" class="pantalla-carga loader">
+  <div id="login-carga" class="login-carga loader">
     <p class="cargando" >Accediendo a tu cuenta...</p>
     <div class="spinner text-white" role="status"></div>
   </div>
@@ -142,7 +142,7 @@
       const scriptUrl = "https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec";
       const url = `${scriptUrl}?login=true&correo=${encodeURIComponent(correo)}`;     
     
-    document.getElementById("pantalla-carga").style.display = "flex";
+    document.getElementById("login-carga").style.display = "flex";
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -160,14 +160,14 @@
           window.location.href = "index.html";
         } else {
         alert("Correo no registrado. Solicita acceso al administrador.");
-        document.getElementById("pantalla-carga").style.display = "none";
+        document.getElementById("login-carga").style.display = "none";
 
         }
       })
       .catch(err => {
         console.error("Error en login:", err);
         alert("Error de red o servidor");
-        document.getElementById("pantalla-carga").style.display = "none";
+        document.getElementById("login-carga").style.display = "none";
       });
   });
   </script>

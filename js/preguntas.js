@@ -132,7 +132,7 @@ function enviarPuntaje(puntaje) {
     .then(res => res.json())
     .then(data => {
       if (data.status === "ok") {
-        cargarPuntajes(correo);
+        cargarPuntajes(correo, puntaje);
       } else {
        // alert("Error al guardar puntaje: " + data.mensaje);
       }
@@ -159,7 +159,7 @@ function mostrarFinal(puntaje) {
   `;
 }
 
-function cargarPuntajes(correouser){
+function cargarPuntajes(correouser, puntajeTest){
   fetch(`https://script.google.com/macros/s/AKfycbwQjzJpunehvKsmBr7fUeeqN7h0eUqv20OHKzeYURHLm3BPn5TzYsXHoA9r25d9bb9a9w/exec?getUserData=true&correo=${correouser}`)
   .then(r => r.json())
   .then(data => {
@@ -170,7 +170,7 @@ function cargarPuntajes(correouser){
       localStorage.setItem("nivel3", data.nivel3);
       localStorage.setItem("nivel4", data.nivel4);
       localStorage.setItem("nivel5", data.nivel5);
-      mostrarFinal(puntaje); // Mostrar solo cuando se confirme el guardado
+      mostrarFinal(puntajeTest); // Mostrar solo cuando se confirme el guardado
     }
   });
 }
