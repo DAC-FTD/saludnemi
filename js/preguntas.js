@@ -51,21 +51,19 @@ function seleccionarOpcion(indice, elemento) {
   const correcta = preguntas[indiceActual].correcta;
   const opciones = document.querySelectorAll('.opcion');
 
-opciones.forEach((el, idx) => {
-  el.classList.remove('correcta', 'incorrecta');
+  opciones.forEach((el, idx) => {
+    el.classList.remove('correcta', 'incorrecta');
 
-  // Si la respuesta es correcta, marcar solo esa opción como correcta
-  if (indice === correcta && idx === indice) {
-    el.classList.add('correcta');
-  }
+    if (indice === correcta && idx === indice) {
+      el.classList.add('correcta');
+    }
 
-  // Si la respuesta es incorrecta, marcar solo la opción seleccionada como incorrecta
-  if (indice !== correcta && idx === indice) {
-    el.classList.add('incorrecta');
-  }
+    if (indice !== correcta && idx === indice) {
+      el.classList.add('incorrecta');
+    }
 
-  el.style.pointerEvents = 'none';
-});
+    el.style.pointerEvents = 'none';
+  });
 
   const feedback = document.getElementById('respuestaFeedback');
   if (indice === correcta) {
@@ -87,14 +85,22 @@ opciones.forEach((el, idx) => {
       </div>`;
   }
 
-  // Mostrar retroalimentación adicional si existe
   const retro = preguntas[indiceActual].retro;
   if (retro && retro.trim() !== "") {
-    document.getElementById('btnRetro').style.display = 'inline-block';
     document.getElementById('contenidoRetro').innerText = retro;
+    document.getElementById('btnRetro').style.display = 'inline-block';
+
+    // ✅ Mostrar modal automáticamente si la respuesta fue incorrecta
+  if (indice !== correcta) {
+    setTimeout(() => {
+      const modal = new bootstrap.Modal(document.getElementById('modalRetro'));
+      modal.show();
+    }, 400); // 800 ms de retardo
+  }
   } else {
     document.getElementById('btnRetro').style.display = 'none';
   }
+
   document.getElementById('btnSiguiente').style.display = 'inline-block';
 }
 

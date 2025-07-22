@@ -52,7 +52,7 @@ function mostrarGaleriaAvatares() {
   galeria.innerHTML = ""; // limpiar por si se reabre
   galeria.style.display = "flex";
 
-  const seeds = ["tigre", "leon", "tigrillo", "robot", "naranja"];
+  const seeds = ["tigre", "leon", "tigrillo", "futbol", "naranja"];
   const seeds2 = ["unemi", "zorrillo", "aaron", "valeria", "fabricio" ];
 
   seeds.forEach(seed => {
