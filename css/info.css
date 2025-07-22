@@ -70,16 +70,54 @@ padding-bottom:0.75rem;
 
 @media (max-width: 768px) {
  #infoCarrusel{
+  padding-top: 1rem;
+  padding-bottom: 0%;
   margin-top: 0.5rem;
   width: 280px !important;
   max-width: 1000px !important;
-
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: -1.2rem;
+ }
+ .info{
+  padding-left: 0% !important;
+  padding-right: 0% !important;
  }
   .info h4{
   font-size: 18px;
  }
  .info p{
-  font-size: 13px;
+  font-size: 12px;
  }
-
+ .info img{
+  display: none;
+  
+ }
+.info ul{
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+font-size: 12px;
+}
+.info ul li{
+padding-bottom:0.35rem;
+}
+.info ol{
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+font-size: 12px;
+}
+.info ol li{
+padding-bottom:0.35rem;
+}
+.carousel-control-prev,
+.carousel-control-next {
+width: 30px;
+height: 30px;
+margin-left: 0.3rem;
+margin-right: 0.3rem;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 50% 50%;
+}
 }
