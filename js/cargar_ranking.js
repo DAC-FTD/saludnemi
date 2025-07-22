@@ -70,11 +70,15 @@ function cargarRanking() {
           ranking.slice(10).forEach((usuario, index) => {
             const div = document.createElement("div");
             div.className = "ranking-item";
+            const esUsuarioActual = usuario.nombre === usuarioActual;
+            const avatar = esUsuarioActual
+              ? localStorage.getItem("avatarSeleccionado") || `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`
+              : `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`;
 
             div.innerHTML = `
               <div class="ranking-left">
                 <div class="ranking-position">${index + 11}</div>
-                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(usuario.nombre)}" class="ranking-avatar">
+                <img src="${avatar}" class="ranking-avatar">
                 <div class="ranking-name">${usuario.nombre}</div>
               </div>
               <div class="ranking-score">${usuario.puntaje}</div>

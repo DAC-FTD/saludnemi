@@ -136,11 +136,13 @@ main {
 
 }
 .logo{
-  height: 23px;
+    height: 100%;
+    max-width: 95%;
 }
-.logo2{
- display: none;
+.logo2 img{
+    display: none !important;
 }
+
 .indicador-inicio {
   width: 90px;
   animation: flotar 1s ease-in-out infinite;
@@ -233,25 +235,24 @@ padding-right: 0.25rem !important;
     align-items: center;
     width: 100%;
   }
-
+  .logo2 img{
+      display:flex !important;
+      width: 15rem;
+  }
   .nav {
     flex-direction: row !important;
     width: 100%;
   }
-
   .navbar{
     border-bottom: 2px solid rgb(92, 107, 116);
   }
-
   .nav-item {
     flex: 1;
     text-align: center;
   }
-
   .nav-link strong {
     display: none !important; /* Oculta el texto */
   }
-
   .nav-link {
     padding: 0;
     display: flex;
@@ -297,7 +298,7 @@ padding-right: 0.25rem !important;
 .dropdown-toggle:focus {
   background-color: #1C3247;
 }
-.logo1{
+.logo{
  display: none;
 }
 .menu-perfil{
