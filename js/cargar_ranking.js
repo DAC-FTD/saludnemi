@@ -7,7 +7,7 @@ function cargarRanking() {
     .then(data => {
       const ranking = data.ranking;
       const usuarioActual = localStorage.getItem("nombreUsuario");
-      const avatarUrl = localStorage.getItem("avatarSeleccionado") || `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`;
+      const avatarUrl = localStorage.getItem("avatarSeleccionado") || `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuarioActual)}`;
       contenedor.innerHTML = ""; // Limpiar mensaje de carga
 
       // Mostrar info del usuario actual en su propio cuadro
