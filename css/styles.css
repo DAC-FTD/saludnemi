@@ -306,13 +306,17 @@ padding-right: 0.25rem !important;
  padding: 0%;
 }
 .img-bienv{
-  height: 140px !important;
-  width: 120px !important;
+  height: 130px !important;
+  width: 110px !important;
 }
 .modal-bienv{
   display: block;
   flex-direction: column-reverse;
 }
+.modal-content {
+  width: 95% !important; margin: auto !important;
+}
+
 .modal-bienv p{
  font-size: 14px;
 }
