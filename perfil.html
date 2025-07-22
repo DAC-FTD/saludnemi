@@ -1,28 +1,24 @@
-<div class="row">
+<div class="perfil row px-4">
     <div class="row saludoborde" style="border-bottom: 0.15rem solid rgb(92, 107, 116)">
   </div>
-  <div class="container text-white">
-  <h4 class="mb-3 fw-bold">Mi Perfil</h4>
+<div class="div-perfil text-center text-white mt-4">
+  <h2 class="mb-3"><i class="bi bi-person-circle"></i> Mi Perfil</h2>
+ <!-- AVATAR -->
+<div class="mb-2">
+  <img id="avatarPerfil" src="" alt="Avatar" class="rounded-circle" style="width: 120px; height: 120px; border: 3px solid #fff; background: #eee;">
+  <br>
+  <button class="btn btn-outline-light mt-2 btn-sm" onclick="mostrarGaleriaAvatares()">Cambiar avatar</button>
+  <!-- GALERÍA DE AVATARES OCULTA -->
+  <div id="galeriaAvatares" class="avatar-gallery mt-3" style="display: none;"></div>
+</div>
 
-  <div class="card p-3 mb-4" style="background:rgba(59, 204, 223, 0.473);">
-    <h5 class="mb-2">Nombre:</h5>
-    <p id="perfilNombre" class="ms-3 text-info">
-    </p>
+<!-- INFO -->
+<div class="p-2 mb-2" style="background:none;">
+  <h3><span id="perfilNombre" class="text-white"></span></h3>
+  <h6> <small id="perfilCorreo" class="text-white"></small></h6>
+</div>
 
-    <h5 class="mt-3 mb-2">Correo:</h5>
-    <p id="perfilCorreo" class="ms-3 text-info">
-       
-    </p>
-
-    <h5 class="mt-3 mb-2">Puntaje Total:</h5>
-    <p id="perfilPuntajeTotal" class="ms-3 text-success fs-4"></p>
-  </div>
-
-  <div class="card p-3" style="background:rgba(59, 204, 223, 0.473);">
-    <h4 class="mb-3">Progreso por Nivel</h4>
-    <div id="perfilNiveles"></div>
-  </div>
-  </div>
+<div id="listaNiveles"></div>
 
 </div>
 

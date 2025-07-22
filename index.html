@@ -13,9 +13,13 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/estilos_ranking.css" rel="stylesheet">
   <link href="css/info.css" rel="stylesheet">
+  <link href="css/perfil.css" rel="stylesheet">
+
   
   <!--scripts-->
   <script src="js/cargar_ranking.js"></script>
+    <script src="js/perfil.js"></script>
+
   
 </head>
 <style>
@@ -219,7 +223,7 @@
       const nombreusuario = localStorage.getItem('nombreUsuario');
       cargarContenido('contenido_inicio.html', () => {
         desbloquearNiveles();
-      // Esta función se ejecuta después de cargar el contenido
+        // Esta función se ejecuta después de cargar el contenido
         document.getElementById('infoUsuario').innerHTML = `<div>${nombreusuario}</div><div>${usuario}</div>`;
             // Acción del botón "Cerrar sesión"
         document.getElementById('cerrarSesion').addEventListener('click', () => {
@@ -248,10 +252,11 @@
      //PERFIL
     document.getElementById('perfilLink').addEventListener('click', function(event) {
       event.preventDefault();
-      cargarContenido('perfil.html');
+      cargarContenido('perfil.html', () => {
+        cargaPerfil(); // ✅ Solo se ejecuta cuando el HTML ya está insertado
+      });
       localStorage.removeItem("yaIngreso");
-
-    }); 
+    });
 
     document.getElementById('aboutUsLink').addEventListener('click', function(event) {
       event.preventDefault();

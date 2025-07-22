@@ -1,0 +1,115 @@
+.nivel-logro {
+  display: flex;
+  align-items: center;
+  background:none;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.nivel-icono img {
+    width: 100px;
+    height: 100px;
+    border: 0.15rem solid #aaa;
+    border-radius: 5rem;
+    object-fit: cover;
+    margin-right: 1rem;
+    padding: 0.5rem;
+}
+
+.nivel-info {
+  flex: 1;
+}
+
+.nivel-titulo {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.nivel-descripcion {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.nivel-barra {
+  background: #34495e;
+  border-radius: 1rem;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.nivel-progreso {
+  background: gold;
+  height: 100%;
+  width: 0%;
+  transition: width 0.6s ease;
+}
+
+.nivel-puntos {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.25rem;
+}
+.nivel-barra-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.emoji-logro {
+  margin-left: 8px;
+  font-size: 1.4rem;
+  animation: aparecer 0.4s ease-in-out;
+}
+.avatar-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.avatar-option {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.avatar-option:hover,
+.avatar-option.selected {
+  border-color: #09aeb5;
+  transform: scale(1.1);
+}
+
+@keyframes aparecer {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .nivel-logro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nivel-icono img {
+    margin-bottom: 0.5rem;
+  }
+
+  .nivel-puntos {
+    align-self: flex-end;
+  }
+  .perfil, .div-perfil{
+    padding: 0px !important;
+  }
+  #avatarPerfil{
+    width: 100px !important;
+    height: 100px !important;
+  }
+  }
+

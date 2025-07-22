@@ -7,7 +7,7 @@ function cargarRanking() {
     .then(data => {
       const ranking = data.ranking;
       const usuarioActual = localStorage.getItem("nombreUsuario");
-
+      const avatarUrl = localStorage.getItem("avatarSeleccionado") || `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`;
       contenedor.innerHTML = ""; // Limpiar mensaje de carga
 
       // Mostrar info del usuario actual en su propio cuadro
@@ -27,7 +27,7 @@ function cargarRanking() {
             </div>
           </div>
           <div class="col-3 col-lg-3 ranking-left-user">
-           <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(datosUsuario?.nombre )}" class="ranking-avatar-user">
+           <img src="${avatarUrl}" class="ranking-avatar-user">
           </div>
         </div>
       `;
@@ -36,19 +36,22 @@ function cargarRanking() {
 
       // Mostrar top 10 inicialmente
       const top10 = ranking.slice(0, 10);
-
       top10.forEach((usuario, index) => {
         const div = document.createElement("div");
         div.className = "ranking-item";
-
         const topClass = index === 0 ? "top-1" :
                         index === 1 ? "top-2" :
                         index === 2 ? "top-3" : "";
 
+        const esUsuarioActual = usuario.nombre === usuarioActual;
+        const avatar = esUsuarioActual
+          ? localStorage.getItem("avatarSeleccionado") || `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`
+          : `https://api.dicebear.com/9.x/initials/svg?seed=${encodeURIComponent(usuario.nombre)}`;
+
         div.innerHTML = `
           <div class="ranking-left">
             <div class="ranking-position ${topClass}">${index + 1}</div>
-            <img src="https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(usuario.nombre)}" class="ranking-avatar">
+            <img src="${avatar}" class="ranking-avatar">
             <div class="ranking-name">${usuario.nombre}</div>
           </div>
           <div class="ranking-score">${usuario.puntaje}</div>
