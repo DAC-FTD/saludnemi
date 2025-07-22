@@ -69,55 +69,55 @@ padding-bottom:0.75rem;
 }
 
 @media (max-width: 768px) {
- #infoCarrusel{
-  padding-top: 1rem;
-  padding-bottom: 0%;
-  margin-top: 0.5rem;
-  width: 280px !important;
-  max-width: 1000px !important;
+  #infoCarrusel {
+    width: 95vw;
+    min-width: 320px;
+    max-width: 100%;
+    padding: 1rem 0.2rem;
+    margin: 0.85rem auto auto;
+    border-radius: 1rem;
+}
+  .info h4{
+  font-size: 1.1rem;
+ }
+  .info p{
+  font-size: 0.9rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-left: -1.2rem;
- }
- .info{
-  padding-left: 0% !important;
-  padding-right: 0% !important;
- }
-  .info h4{
-  font-size: 18px;
- }
- .info p{
-  font-size: 12px;
- }
- .info img{
-  display: none;
-  
- }
-.info ul{
-padding-left: 1.5rem;
-padding-right: 1.5rem;
-font-size: 12px;
 }
-.info ul li{
-padding-bottom:0.35rem;
+  .info ul, .info ol {
+  font-size: 0.9rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-.info ol{
-padding-left: 1.5rem;
-padding-right: 1.5rem;
-font-size: 12px;
+  .info img {
+    display: none;
 }
-.info ol li{
-padding-bottom:0.35rem;
+  .info ul li{
+  padding-bottom:0.35rem;
+  padding-left: 0.6rem;
 }
-.carousel-control-prev,
-.carousel-control-next {
-width: 30px;
-height: 30px;
-margin-left: 0.3rem;
-margin-right: 0.3rem;
+  .info ol li{
+  padding-bottom:0.35rem;
+  padding-left: 0.6rem;
 }
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 50% 50%;
+.cont-nvl{
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
+}
+  .carousel-item {
+    min-width: 100%;
+    width: 100%;
+}
+  .carousel-control-prev,
+  .carousel-control-next {
+  width: 30px;
+  height: 30px;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-size: 50% 50%;
 }
 }
